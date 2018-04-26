@@ -57,11 +57,6 @@ export const insert = async (name, newEntry) => {
 export const update = async (name, id, newValues, forceUpdate) => {
   try {
     delete newValues['_id'];
-
-    if (forceUpdate) {
-      return await db.collection(name).findOneAndUpdate({ _id: ObjectID(id) }, newValues);
-    }
-
     return await db.collection(name).findOneAndUpdate({ _id: ObjectID(id) }, { $set: newValues });
   } catch (e) {
     console.log(e.stack);
