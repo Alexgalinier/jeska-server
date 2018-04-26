@@ -1,13 +1,14 @@
 import * as memoryDB from './db-memory';
 import * as mongoDB from './db-mongo';
 
-export default async ({ BD_USER, BD_PASSWORD, BD_NAME }) => {
+export default async ({ user, password, name }) => {
   let db;
 
-  if (BD_USER && BD_PASSWORD && BD_NAME) {
+  if (user && password && name) {
     try {
       db = mongoDB;
-      await db.connect(`mongodb://${BD_USER}:${BD_PASSWORD}@ds229388.mlab.com:29388/${BD_NAME}`, BD_NAME);
+
+      await db.connect(`mongodb://${user}:${password}@ds159489.mlab.com:59489/${name}`, name);
     } catch (e) {
       throw new Error('Database failed to start');
     }

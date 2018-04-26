@@ -46,7 +46,9 @@ export const get = async function(name, id) {
 
 export const insert = async (name, newEntry) => {
   try {
-    return await db.collection(name).insertOne(newEntry);
+    const res = await db.collection(name).insertOne(newEntry);
+    newEntry._id = res.insertedId.toString();
+    return newEntry;
   } catch (e) {
     console.log(e.stack);
   }
