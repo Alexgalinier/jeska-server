@@ -1,0 +1,51 @@
+{
+  "name": "kzou-server",
+  "version": "0.3.0",
+  "description": "Server API for Kzou App",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "main": "index.js",
+  "author": "Alexgalinier",
+  "scripts": {
+    "pretty": "a_codestyle -i build",
+    "build-js": "babel src --out-dir build --ignore **/*.test.js",
+    "watch-js": "babel src --watch --out-dir build --ignore **/*.test.js",
+    "watch-server": "nodemon --watch build build/index.js",
+    "start": "SECRET=a run-p watch-js watch-server",
+    "start-local-prod": "NODE_ENV=production HTTP_HEADER_ORIGIN=* SECRET=a node build/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "bcrypt": "^2.0.0",
+    "dotenv": "^5.0.0",
+    "jsonwebtoken": "^8.2.0",
+    "lodash": "^4.17.4",
+    "mongodb": "^3.0.2",
+    "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.44",
+    "@babel/core": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "a_codestyle": "^3.0.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "jest": "^21.2.1",
+    "nodemon": "^1.17.3",
+    "npm-run-all": "^4.1.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^22.4.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alexgalinier/kzou-server"
+  },
+  "keywords": [
+    "education",
+    "freinet",
+    "backend"
+  ],
+  "license": "MIT"
+}
