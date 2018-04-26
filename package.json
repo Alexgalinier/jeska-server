@@ -14,7 +14,9 @@
     "watch-server": "nodemon --watch build build/index.js",
     "start": "SECRET=a run-p watch-js watch-server",
     "start-local-prod": "NODE_ENV=production HTTP_HEADER_ORIGIN=* SECRET=a node build/index.js",
-    "test": "jest"
+    "test": "jest",
+    "preprod": "npm run build-js",
+    "prod": "node build/index.js"
   },
   "dependencies": {
     "bcrypt": "^2.0.0",
