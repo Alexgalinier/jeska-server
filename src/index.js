@@ -19,7 +19,7 @@ import finances from './routes/finances';
   server.before(log);
   server.before(accessControl(web.headerOrigin));
 
-  server.config({ db: await Database(database) });
+  server.config({ db: await Database(database), maxUsersCount: database.maxUsersCount });
   server.routes(login);
   server.routes(users);
   server.routes(finances);

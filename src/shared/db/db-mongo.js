@@ -70,3 +70,12 @@ export const remove = async (name, id) => {
     console.log(e.stack);
   }
 };
+
+export const count = async name => {
+  try {
+    const res = await db.collection(name).stats();
+    return res.count;
+  } catch (e) {
+    console.log(e.stack);
+  }
+};

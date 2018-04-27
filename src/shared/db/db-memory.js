@@ -45,3 +45,9 @@ export const remove = async (name, id) => {
   const deletedObj = data[name].splice(index, 1);
   return Promise.resolve(deletedObj[0]);
 };
+
+export const count = async name => {
+  if (!data[name]) return Promise.resolve(undefined);
+
+  return Promise.resolve(data[name].length);
+};
